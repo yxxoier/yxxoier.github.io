@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CSimsun:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -216,12 +216,12 @@
 <h3 id="一">一、</h3>
 <p>使用如下指令时，无法成功编译，显示
 <code>Missing $ inserted.</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;equation*&#125;</span><br><span class="line"></span><br><span class="line">    a + b = c</span><br><span class="line"></span><br><span class="line">\end&#123;equation*&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;<span class="keyword">equation</span>*&#125;</span><br><span class="line"></span><br><span class="line">    a <span class="comment">+ b = c</span></span><br><span class="line"></span><br><span class="line">\end&#123;<span class="keyword">equation</span>*&#125;</span><br></pre></td></tr></table></figure>
 <p>原因：有空行</p>
 <p>删除后问题解决</p>
 <h3 id="二">二、</h3>
 <p>使用如下指令， <code>\pause</code> 后的内容消失</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;frame&#125;[allowframebreaks]</span><br><span class="line"></span><br><span class="line">    \begin&#123;equation*&#125;</span><br><span class="line">        a + b = c</span><br><span class="line">    \end&#123;equation*&#125; \pause</span><br><span class="line"></span><br><span class="line">    \begin&#123;equation*&#125;</span><br><span class="line">        a = c - b</span><br><span class="line">    \end&#123;equation*&#125;</span><br><span class="line"></span><br><span class="line">\end&#123;frame&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">\<span class="keyword">begin</span>&#123;frame&#125;[allowframebreaks]</span><br><span class="line"></span><br><span class="line">    \<span class="keyword">begin</span>&#123;equation*&#125;</span><br><span class="line">        a + b <span class="operator">=</span> <span class="keyword">c</span></span><br><span class="line">    \<span class="keyword">end</span>&#123;equation*&#125; \pause</span><br><span class="line"></span><br><span class="line">    \<span class="keyword">begin</span>&#123;equation*&#125;</span><br><span class="line">        a <span class="operator">=</span> <span class="keyword">c</span> - b</span><br><span class="line">    \<span class="keyword">end</span>&#123;equation*&#125;</span><br><span class="line"></span><br><span class="line">\<span class="keyword">end</span>&#123;frame&#125;</span><br></pre></td></tr></table></figure>
 <p>原因：使用了 <code>allowframebreaks</code></p>
 <p>删除后问题解决，能正常显示动画</p>
 
